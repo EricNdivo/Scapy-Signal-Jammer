@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signal Jammer Control</title>
+</head>
+<body>
+    <h1>Signal Jammer Control</h1>
+    <form id="jamForm" action="{% url 'start_jamming' %}" method="post">
+        {% csrf_token %}
+        <label for="interface">Interface:</label>
+        <input type="text" id="interface" name="interface" required>
+        <button type="submit">Start Jamming</button>
+    </form>
+    <br>
+    <form id="stopForm" action="{% url 'stop_jamming' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Stop Jamming</button>
+    </form>
+</body>
+</html>
