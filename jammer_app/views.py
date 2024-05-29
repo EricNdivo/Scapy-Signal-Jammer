@@ -15,6 +15,7 @@ jam_thread = None
 def home(request):
     return render(request, 'home.html')
 
+
 def jam_wireless_networks():
     global jamming, interface
 
@@ -23,14 +24,17 @@ def jam_wireless_networks():
     try:
         while jamming:
             for channel in channels:
-                
                 packet = IP(dst="1.2.3.4") / ICMP()
                 
+                send(packet, verbose=False, iface=interface, socket=conf.L3socket)
                 
-                send(packet, verbose=False, iface=interface)
+                
+                logging.info(f"Sent ICMP packet to destination: {packet[IP].dst}")
                 time.sleep(0.1)  
     except KeyboardInterrupt:
         pass  
+
+
 
 @csrf_exempt
 def start_jamming(request):
