@@ -113,15 +113,10 @@ USE_I18N = True
 USE_TZ = True
 
 
-
-
 STATIC_URL = 'static/'
-#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static' ),)
-
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static' ),)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
 
 LOGGING = {
     'version': 1,
@@ -138,7 +133,7 @@ LOGGING = {
             'level': 'INFO',
             'propagate': True,
         },
-        'your_app_name': {'jammer_app'
+        'jammer_app': {
             'handlers': ['console'],
             'level': 'INFO',
             'propagate': True,
